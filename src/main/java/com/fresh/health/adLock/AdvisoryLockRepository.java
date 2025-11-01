@@ -20,13 +20,13 @@ public class AdvisoryLockRepository {
     }
 
     @Transactional
-    public Object acquireLock(String name) {
-        return entityManager.createNativeQuery("select GET_LOCK(:name, 5)").setParameter("name", name).getSingleResult();
+    public Object acquireLock(int name) {
+        return entityManager.createNativeQuery("select GET_LOCK(:token, 5)").setParameter("token", name).getSingleResult();
     }
 
     @Transactional
-    public Object releaseLock(String name) {
-        return entityManager.createNativeQuery("select RELEASE_LOCK(:name, 5)").setParameter("name", name).getSingleResult();
+    public Object releaseLock(int name) {
+        return entityManager.createNativeQuery("select RELEASE_LOCK(:token)").setParameter("token", name).getSingleResult();
     }
 
 }

@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface StudentRepo extends JpaRepository<Student, Integer> {
 
-    @Query(nativeQuery = true, value = "select * from vader.students s where s.name = :name")
-    public List<Student> findByName(String name);
+    @Query(nativeQuery = true, value = "select * from vader.students s where s.student_id = :studentId")
+    public List<Student> findByName(String studentId);
 
-    default public boolean studentExists(String name) {
-        return !findByName(name).isEmpty();
+    default public boolean studentExists(String studentId) {
+        return !findByName(studentId).isEmpty();
     }
 }

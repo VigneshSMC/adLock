@@ -1,11 +1,14 @@
 package com.fresh.health.request;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 public class StudentRequest {
     private String firstName;
     private String secondName;
-    private int mark;
-    private int grade;
+    private Integer mark;
+    private Integer grade;
+    private String studentId;
 }
